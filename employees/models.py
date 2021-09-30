@@ -8,5 +8,5 @@ class Employee(models.Model):
     account = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'FulLname: {self.first_name}{self.last_name}'
+        return f'Fullname: {self.first_name}{self.last_name}'
 
