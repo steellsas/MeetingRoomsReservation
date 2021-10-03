@@ -1,5 +1,30 @@
-# from rest_framework import serializers
-# from django.contrib.auth.models import User
+from rest_framework import serializers
+from reservations.models import RoomBooking
+from rooms.serializers import MeetRoomSerializer
+from employees.serializers import  EmployeeSerializer
+from rooms.models import  MeetingRoom
+
+
+class RoomBookingSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = RoomBooking
+        fields = ('id','title', 'date_from', 'date_to', 'room', 'employees')
+        # depth = 1
+
+
+    # def create(self, validated_data):
+    #     room_data = validated_data.pop('room_id')
+    #     room_instance = MeetingRoom.objects.create(
+    #         title = room_data['title'])
+    #
+    #     room_instance.save()
+    #
+    #     employee_instance = Employee.objects.create(**validated_data, account=user_instance)
+    #     employee_instance.save(0)
+    #     return employee_instance
+    #
+
 # from employees.serializers import EmployeeSerializer
 # from employees.models import Employee
 # from reservations.models import EmployeesInMeetingRoom, MeetingRoomReservation
@@ -25,7 +50,7 @@
 #             if isinstance(employee_group, list):
 #                 for empl_id in employee_group:
 #                     try:
-#                         employees = Employee.objects.get(pk=empl_id)
+#
 #                         EmployeesInMeetingRoom.employee.add(employees)
 #                     except Exception as err:
 #                         pass

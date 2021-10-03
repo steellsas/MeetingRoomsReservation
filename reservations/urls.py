@@ -1,11 +1,11 @@
-# from django.urls import path
-# from reservations.views import EmployeesInMeetingRoomListView,EmployeeGroupViewSet
-#
-# app_name = 'reservations'
-#
-#
-# urlpatterns = [
-#     path('reservation/roomgroup/', EmployeesInMeetingRoomListView.as_view({'get': 'list'})),
-#     # path('resevations/create/', EmployeeGroupViewSet.as_view({'post': 'create'})),
-#     # path('resevations/all/', EmployeeGroupViewSet.as_view({'get': 'list'}))
-# ]
+from django.urls import path
+from reservations.views import BookingRoomViewSet
+
+app_name = 'reservations'
+
+
+urlpatterns = [
+    path('resevations/create/', BookingRoomViewSet.as_view({'post': 'create'})),
+    path('resevations/all/', BookingRoomViewSet.as_view({'get': 'list'})),
+    path('resevations/edit/<int:pk>', BookingRoomViewSet.as_view({'get': 'retrieve','put': 'update','delete': 'destroy'}))
+]
