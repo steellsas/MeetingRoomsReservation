@@ -1,21 +1,20 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
-
+from rest_framework.permissions import IsAuthenticated
 from reservations.models import RoomBooking
-from employees.models import Employee
 from reservations.serializers import RoomBookingSerializer
 
 
 class BookingRoomViewSet(viewsets.ModelViewSet):
     queryset =RoomBooking.objects.all()
     serializer_class = RoomBookingSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated]
 
 
 class ReservationsByRoomViewSet(viewsets.ModelViewSet):
     queryset =RoomBooking.objects.all()
     serializer_class = RoomBookingSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated]
 
     def retrieve(self, request,*args,**kwargs):
         room_id = kwargs['pk']
@@ -27,7 +26,7 @@ class ReservationsByRoomViewSet(viewsets.ModelViewSet):
 class RoomReservationsByEmployeeViewSet(viewsets.ModelViewSet):
     queryset =RoomBooking.objects.all()
     serializer_class = RoomBookingSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated]
 
     def retrieve(self, request,*args,**kwargs):
         employee_id = kwargs['pk']
@@ -35,14 +34,3 @@ class RoomReservationsByEmployeeViewSet(viewsets.ModelViewSet):
         serializer = RoomBookingSerializer(room_reservations, many=True)
         return Response(serializer.data)
 
-# # @api_view(['GET'])
-# def get_images_mask_result(request, room_id):
-#     queryset = RoomBooking.objects.filter(room__id=room_id).order_by('employees__first_name')
-#     message ="test"
-#     return Response({'room_reservation': massage})
-
-
-# group = {'id': 50, 'employee': [{'id': 1}, {'id': 5}]}var(q)
-# filter room reservaition where are employee_id
-# res_by_emp = RoomBooking.objects.filter(employees__id=3)
-# room_reervations3 = RoomBooking.objects.filter(room=3)
