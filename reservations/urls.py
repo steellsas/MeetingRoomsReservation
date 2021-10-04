@@ -10,5 +10,6 @@ urlpatterns = [
          BookingRoomViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
     path('reservations/room/<int:pk>', ReservationsByRoomViewSet.as_view({'get': 'retrieve'})),
     path('reservations/room/employee/<int:pk>', RoomReservationsByEmployeeViewSet.as_view({'get': 'retrieve'})),
+    path('reservations/cancel/<int:pk>', BookingRoomViewSet.as_view({'get': 'retrieve', 'delete': 'destroy'})),
 
 ]

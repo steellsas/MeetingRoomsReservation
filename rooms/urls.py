@@ -5,6 +5,6 @@ app_name = 'rooms'
 
 
 urlpatterns  = [
-    path('all/', MeetRoomViewSet.as_view({"get": "list"}) ),
-    path('add/', MeetRoomViewSet.as_view({'post': 'create'}), name ='create_room' ),
+    path('room/all/', MeetRoomViewSet.as_view({"get": "list"})),
+    path('room/add/', MeetRoomViewSet.as_view({'post': 'create'}), name='create_room'),
 ]
