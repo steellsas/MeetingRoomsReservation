@@ -10,6 +10,5 @@ class RoomBooking(models.Model):
     room = models.ForeignKey(MeetingRoom, on_delete=models.CASCADE)
     employees = models.ManyToManyField(Employee, blank=True)
 
-
     def __str__(self):
         return f' Title: {self.title}'
