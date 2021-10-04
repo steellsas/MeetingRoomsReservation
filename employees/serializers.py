@@ -4,7 +4,6 @@ from employees.models import Employee
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
         fields = ('id', 'username', 'password', 'email')
@@ -25,18 +24,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
             password=user_data['password'],
             email=user_data['email'])
         user_instance.save()
-        employee_instance = Employee.objects.create(**validated_data,account=user_instance)
+        employee_instance = Employee.objects.create(**validated_data, account=user_instance)
         employee_instance.save(0)
         return employee_instance
-
-
-
-
-
-
-
-
-
-
-
-
