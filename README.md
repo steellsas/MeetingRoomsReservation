@@ -5,7 +5,8 @@ room’s availability, book or cancel a reservation through an API
 
  Database schema:
 
- <img height="200" src="C:\my porfolio\MeetingRoomsReservation\Document\MeetingRoom reservations.png" width="200"/>  
+ <img height="200" src="https://github.com/steellsas/MeetingRoomsReservation/blob/main/Document/MeetingRoom%20reservations.png" width="200"/>  
+
 
 Project made with Django Rest Framework. 
  * Project features: 
