@@ -19,7 +19,7 @@ Project made with Django Rest Framework.
  *      3.Get meeting room reservations to filter by employee.
  *        Link  127.0.0.1:8000/reservations/cancel/<int:roombooking_id>
  *      4. Get all meeting rooms reservations. Link  127.0.0.1:8000/reservations/room/all
- *      5  GEt room reservations by room id. Link  127.0.0.1:8000/reservations/room/<int:room_id>
+ *      5  Get room reservations by room id. Link  127.0.0.1:8000/reservations/room/<int:room_id>
  *      6 Employee have first name, last name and account. Employes have relationshiip with User.
          Creating Employee must create account (Username,password. email)
  *       link: Link  127.0.0.1:8000/employee/register/
