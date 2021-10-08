@@ -11,7 +11,7 @@ class TestRoomViews(APITestCase):
         self.user = User.objects.create_user(username='username', password='Password')
         self.client.force_authenticate(self.user)
         self.room= {'title': 'casperis'}
-        self.url_name = reverse("rooms:create_room")
+        self.url_name = reverse("rooms:create-room")
 
     def test_create0_room(self):
         response = self.client.post(self.url_name, self.room, format='json')
