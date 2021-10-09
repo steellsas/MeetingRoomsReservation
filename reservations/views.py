@@ -17,7 +17,7 @@ class ReservationsByRoomViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def retrieve(self, request,*args,**kwargs):
-        room_id = kwargs['pk']
+        room_id = kwargs['room_id']
         reservations_by_room = RoomBooking.objects.filter(room=room_id)
         serializer = RoomBookingSerializer(reservations_by_room, many=True)
         return Response(serializer.data)
