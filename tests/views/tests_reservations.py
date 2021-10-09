@@ -29,7 +29,7 @@ class TestRoomReservationsViews(APITestCase):
         self.emp5 = Employee.objects.create(first_name='Zero', last_name='one', account=self.user_5)
 
         self.reservation1 = RoomBooking.objects.create(
-            title='Party Meeting', date_from='2021-11-10',date_to='2021-11-12', room=self.room)
+            title='Meeting 1', date_from='2021-11-10',date_to='2021-11-12', room=self.room)
         self.reservation1.employees.add(self.emp1)
 
         self.reservation2 = RoomBooking.objects.create(
@@ -57,16 +57,26 @@ class TestRoomReservationsViews(APITestCase):
 
     def test_create_reservation(self):
         response = self.client.post(self.url_name,  self.reservation_data, format='json')
-        expected = RoomBooking.objects.first()
+        expected = RoomBooking.objects.last()
         self.assertEqual(response.status_code, 201)
         self.assertEqual(f'{expected.title}', 'Party Meeting')
 
+    def test_all_reservations(self):
+        self.url_name_all=reverse('reservations:reservations-all')
+        response = self.client.get(self.url_name_all)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 4)
+        # [print(item) for item in response.data]
+
+
+
+
     def test_room_reservations(self):
-        self.url = reverse()
+        # self.url = reverse()
         test = RoomBooking.objects.filter(room=self.room.id)
         for i in range(len(test)):
             print(test[i].room)
-        response = self.client.post(self.url_name, self.reservation_data, format='json')
+        # response = self.client.post(self.url_name, self.reservation_data, format='json')
 
     def test_employee_in_room_reservations(self):
 
