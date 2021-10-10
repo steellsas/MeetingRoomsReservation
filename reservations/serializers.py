@@ -6,4 +6,4 @@ class RoomBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = RoomBooking
         fields = ('id', 'title', 'date_from', 'date_to', 'room', 'employees')
-        # depth = 1
+
