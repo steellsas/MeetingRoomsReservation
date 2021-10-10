@@ -86,5 +86,6 @@ class TestRoomReservationsViews(APITestCase):
                                            , kwargs={'employee': self.emp5.id})
         response = self.client.get(self.url_room_reservations)
         self.assertEqual(response.status_code, 200)
+        self.assertEqual( self.emp5.id in list(response.data[0].items())[-1][1], True)
         self.assertEqual(len(response.data), 2)
-        [print(item) for item in response.data]
+
