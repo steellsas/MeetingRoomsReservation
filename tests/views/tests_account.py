@@ -6,11 +6,12 @@ from django.urls import reverse
 class TestAccount(APITestCase):
 
     def setUp(self):
+        # self.user = User.objects.create_user(username='username', password='Password')
         self.user = User
         self.data = {
             'email': 'email@gmail.com',
-            'username': 'userOne ',
-            'password': 'emailemail'
+            'username': 'userOne',
+            'password': 'Password'
         }
         self.url_name = "accounts:user_register"
 
